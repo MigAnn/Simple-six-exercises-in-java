@@ -16,12 +16,12 @@ public class StatsService {
         // была вероятность того, что число могло быть дробным, но у нас целое число
         int sum = sum(sales);
         int month = 0;
-        int medium=0;
+        int medium = 0;
         for (int sale : sales) {
             month = sales.length;
-            medium = sum/month;
+            medium = sum / month;
         }
-        return medium ;
+        return medium;
     }
 
     public int maxSales(int[] sales) {
@@ -61,7 +61,7 @@ public class StatsService {
     }
 
     public int mediumMax(int[] sales) {
-        int month=0;
+        int month = 0;
         int medium = medium(sales);
         for (int sale : sales) {
             if (sale > medium) {

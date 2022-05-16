@@ -1,7 +1,7 @@
 package ru.netology.stats;
-//Кол-во месяцев, в которых продажи были ниже среднего (см. п.2)
-//Кол-во месяцев, в которых продажи были выше среднего (см. п.2)
 
+//        Кол-во месяцев, в которых продажи были ниже среднего (см. п.2)
+//        Кол-во месяцев, в которых продажи были выше среднего (см. п.2)
 
 public class StatsService {
     public int sum(int[] sales) {
@@ -14,11 +14,14 @@ public class StatsService {
 
     public int medium(int[] sales) {   //в этом задании я бы стала использовать переменную double вместо int так как
         // была вероятность того, что число могло быть дробным, но у нас целое число
-        int medium = 0;
+        int sum = sum(sales);
+        int month = 0;
+        int medium=0;
         for (int sale : sales) {
-            medium += sale;
+            month = sales.length;
+            medium = sum/month;
         }
-        return medium / sales.length;
+        return medium ;
     }
 
     public int maxSales(int[] sales) {
@@ -47,39 +50,26 @@ public class StatsService {
     }
 
     public int mediumMin(int[] sales) {
-        int mounth = 0;
-        int sum = 0;
-
-        for (int sale : sales) {
-            sum += sale;
-        }
-        int medium = sum / 12;
+        int month = 0;
+        int medium = medium(sales);
         for (int sale : sales) {
             if (sale < medium) {
-                mounth++;
+                month++;
             }
         }
-        return mounth;
+        return month;
     }
 
     public int mediumMax(int[] sales) {
-        int mounth = 0;
-        int sum = 0;
-
-        for (int sale : sales) {
-            sum += sale;
-        }
-        int medium = sum / 12;
+        int month=0;
+        int medium = medium(sales);
         for (int sale : sales) {
             if (sale > medium) {
-                mounth++;
+                month++;
             }
         }
-        return mounth;
+        return month;
     }
 }
-
-
-
 
 
